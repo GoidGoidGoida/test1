@@ -4,6 +4,15 @@ import (
 	"fmt"
 )
 
+func NewHuman(ageI int, nameI int) (human, error) {
+	hum := human{
+		name: nameI,
+	}
+	err := hum.SetAge(ageI)
+	hum.determineStatus(hum.age)
+	return &hum, err
+}
+
 type human struct {
 	age    int
 	name   string
